@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="counterApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Counter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="CounterController">
+  <div class="glass-container">
+    <h1>🔢 AngularJS Counter</h1>
+
+    <div class="counter-display">{{ count }}</div>
+
+    <div class="button-group">
+      <button ng-click="decrement()">➖ Decrement</button>
+      <button ng-click="reset()">🔁 Reset</button>
+      <button ng-click="increment()">➕ Increment</button>
+    </div>
+  </div>
+
+  <script>
+    angular.module('counterApp', [])
+      .controller('CounterController', function($scope) {
+        $scope.count = 0;
+
+        $scope.increment = function() {
+          $scope.count++;
+        };
+
+        $scope.decrement = function() {
+          if ($scope.count > 0) {
+            $scope.count--;
+          }
+        };
+
+        $scope.reset = function() {
+          $scope.count = 0;
+        };
+      });
+  </script>
+</body>
+</html>
